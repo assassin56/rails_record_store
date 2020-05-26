@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(album_params)
     if @album.save
-      redirect_to albums_paths
+      redirect_to albums_path
     else
       render :new
     end
@@ -39,7 +39,7 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album = Album.fin(:params[:id])
+    @album = Album.find(:params[:id])
     @album.destroy
     redirect_to albums_path
   end
